@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script language="javascript">
+function lieju(){
+	var myLieju= document.getElementById("liejuinput").value;
+	document.getElementById("liejuresult").innerHTML=prinmeN(myLieju);
+	}
+function panduan(){
+	var myPanduan=document.getElementById("panduaninput").value;
+	document.getElementById("panduanresult").innerHTML=isPrinme(myPanduan);
+	}
+function fenjie1()
+{
+	var ga=document.getElementById("fenjieinput").value;
+	if (isPrinme(ga)||ga==1||isNaN(ga)||ga>20000000)
+	{
+	document.getElementById("fenjieresult").innerHTML="Wrong number!Idiot!";
+	}
+	else
+		{
+			var newHTML=ga+"=";
+
+			var i=2;
+			var p=0;
+			var prins=new Array();
+	
+			while (i <= (ga/2)) 
+				{
+					if (isPrinme(i))
+						{
+							prins[p]=i;
+							p=p+1;
+						}
+					i=i+1;
+				}
+			
+			var flag=1;
+			while (flag)
+			{
+				var ot=0;
+				
+				while(ot<prins.length)
+					{
+						if(ga%prins[ot]==0)
+							{
+						
+								if(ga/prins[ot]==1)
+									{ newHTML=newHTML+prins[ot];flag=0;}
+								else
+									{ var uu=prins[ot];
+							
+									newHTML=newHTML+uu+"*";
+									break;
+									}
+							}
+						ot=ot+1;
+					}
+							
+					
+				ga=ga/uu;
+			}
+		document.getElementById("fenjieresult").innerHTML=newHTML;
+		}
+}
+							
+						
+						
+						
+						
+						
+function isPrinme(n) {
+        if(n == 0 || n==1 || isNaN(n) || n>10000000000){
+            return false;
+        }
+        if(n==2){
+            return true;
+        }
+        for(var i=2;i<=Math.sqrt(n);i++){
+            if(n%i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+function prinmeN(n)
+	{
+		
+		var i=2;
+		var newHTML="";
+		if(n>1000000){ newHTML="Wrong number!" }
+		else
+		{ var ki=1;
+		while (i <= n) 
+			{ 
+				if (isPrinme(i))
+					{
+						if (ki%15==0)	{newHTML=newHTML+i+"<br />";}
+						else {newHTML=newHTML+i+"  ";}
+						ki=ki+1;
+					}
+				i=i+1;
+			}
+			}
+		return newHTML;
+	}
+
+
+<title>很多功能</title>
+<link href="main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="bg">
+
+<div id="panduan" class="sect">
+<div class="sectName">判断素数</div>
+<div id="panduanfunc" class="func">
+<span class="tip">输入数字：</span><input id="panduaninput" class="inputt"  /><span><button class="botton"  type="button" onclick="panduan()">判断</button></span>
+<div id="panduanresult" class="result" >
+</div>
+</div>
+</div>
+
+<div id="lieju" class="sect">
+<div class="sectName">列举素数</div>
+<div id="liejufunc" class="func">
+<span class="tip">输入数字：</span>
+<input id="liejuinput" class="inputt"  />
+<button class="botton"  type="button" onclick="lieju()">列举</button></span>
+<div id="liejuresult" class="result" >
+</div>
+</div>
+</div>
+
+<div id="fenjie" class="sect">
+<div class="sectName">分解质因数</div>
+<div id="fenjiefunc" class="func">
+<span class="tip">输入数字：</span>
+<input id="fenjieinput" class="inputt"  />
+<button class="botton"  type="button" onclick="fenjie1()">分解</button></span>
+<div id="fenjieresult" class="result" >
+</div>
+</div>
+</div>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+body
+{
+	height:100%;
+	margin:0px;
+	padding:0px;
+	}
+#bg
+{
+	background-color:#ff9933;
+	height:100%;
+	width:100%;
+	margin:0px;
+	padding-top:20px;
+	padding-bottom:20px;
+	}
+.sect
+{
+	background-color:#FFFFFF;
+	margin-left:40px;
+	margin-right:40px;
+	margin-bottom:30px;
+	padding:20px;
+	}
+.sectName
+{
+	font-size:20px;
+	}
+.botton
+{
+	background-image:url(images/botton1.png);
+	height:54px;
+	width:100px;
+	text-align:center;
+	font-size:34px;
+	}
+.botton:hover
+{
+	background-image:url(images/botton2.png);
+	height:54px;
+	width:100px;
+	}
+.result
+{
+	width:100%;
+	height:auto;
+	border-left:dotted #00ff00 thick;
+	border-right:dotted #00FF00 thick;
+	}
